@@ -19,6 +19,7 @@
     --indent: 30px;/* відступи між картками */
     --color-icon: #AFB1B8;
     --primary-bg-color: #E5E5E5;
+    --transform-1: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 /*основний колір фону #FFFFFF*/
 /*другорядний колір фону #F5F4FA*/
@@ -149,11 +150,12 @@ ul.list{
     text-decoration: none;
     display: inline-block;
 
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color var(--transform-1);
 }
 .list .studio.current,
 .list .portfolio.current{
     color: var(--accent-color1);
+    
 }
 
 .blue,
@@ -166,6 +168,7 @@ ul.list{
 .portfolio:hover,
 .contacts:hover{
     color: var(--accent-color1);
+    
 }
 
 /* Підкреслення під поточною сторінкою */
@@ -190,6 +193,7 @@ ul.list{
     background-color: var(--blue-background);
 }
 
+/*  */
 .adressli{
     position:relative;
 }
@@ -205,6 +209,7 @@ ul.list{
     text-decoration: none;
     color: var(--primary-text-color);
     
+    transition: color var(--transform-1);
 }
 
 .icon-mail,
@@ -212,27 +217,34 @@ ul.list{
     vertical-align:middle;
     fill: currentColor;
     margin-right: 10px;
+
+    transition: color var(--transform-1);
 }
 
 
 .mail:hover,
 .tel:hover{
     color: #2196F3;
+    
 }
 
 .mail:hover .icon-mail,
 .tel:hover .icon-tel{
-    fill: var(--blue-background);   
+    fill: var(--blue-background);
+    
 }
 .mail:focus,
 .tel:focus {
     color: #2196F3;
+    
 }
 
 .mail:focus .icon-mail,
 .tel:focus .icon-tel {
     fill: var(--blue-background);
+    
 }
+
 
 .list-adress{
     align-items: center;
@@ -245,7 +257,7 @@ ul.list{
     margin-left: auto;
     margin-right: auto;
     background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), 
-    url(../imeges/hw-04/Img\ \(1\)\ \(2\).jpg), url(../imeges/hw-04/Img\ \(1\)\ \(2\).jpg);
+    url(../imeges/hw/Img\ \(1\)\ \(2\).jpg), url(../imeges/hw/Img\ \(1\)\ \(2\).jpg);
     background-position: center;
 }
 
@@ -271,7 +283,7 @@ ul.list{
     margin-left: auto;
     margin-right: auto;
 }
-
+/*  */
 .button{
     color: var(--title-text-color);
     background-color: var(--background-color);
@@ -284,8 +296,9 @@ ul.list{
     line-height: 1.9;
     cursor: pointer;
     display: flex;
-
 }
+
+
 .button.service{
     background: var(--blue-background);
     color: var(--accent-color2);
@@ -296,9 +309,29 @@ ul.list{
     text-decoration: none;
     border-radius: 4px;
 
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), 
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition-property: color, background-color, box-shadow;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+    
+.button.service:hover,
+.button.service:focus {
+    color: var(--accent-color2);
+    background-color: var(--blue-background);
+    outline: none;
+    
+    box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1),
+                0px 1px 2px rgba(0, 0, 0, 0.08),
+                0px 2px 2px rgba(0, 0, 0, 0.12);
+}
+    
+.hero .button.service:hover,
+.hero .button.service:focus {
+    background-color: #188ce8;
+    outline: none;
+}
+/*  */
+
 .box.plate::before {
     content: '';
     display: block;
@@ -306,8 +339,8 @@ ul.list{
     border-radius: 4px;
     background-repeat: no-repeat;
     background-position: center;
-    background-color: #F5F4FA;
-    background-image: url(../imeges/hw-04/original.svg/plate1.svg);
+    background-color: var(--other-background-color);
+    background-image: url(../imeges/hw/original.svg/plate1.svg);
 }
 .box.clock::before {
     content: '';
@@ -316,8 +349,8 @@ ul.list{
     border-radius: 4px;
     background-repeat: no-repeat;
     background-position: center;
-    background-color: #F5F4FA;
-    background-image: url(../imeges/hw-04/original.svg/clock2.svg);
+    background-color: var(--other-background-color);
+    background-image: url(../imeges/hw/original.svg/clock2.svg);
 }
 .box.diagram::before {
     content: '';
@@ -326,8 +359,8 @@ ul.list{
     border-radius: 4px;
     background-repeat: no-repeat;
     background-position: center;
-    background-color: #F5F4FA;
-    background-image: url(../imeges/hw-04/original.svg/diagram3.svg);
+    background-color: var(--other-background-color);
+    background-image: url(../imeges/hw/original.svg/diagram3.svg);
 }
 .box.astronaut::before{
     content: '';
@@ -336,8 +369,8 @@ ul.list{
     border-radius: 4px;
     background-repeat: no-repeat;
     background-position: center;
-    background-color: #F5F4FA;
-    background-image: url(../imeges/hw-04/original.svg/astronaut4.svg);
+    background-color: var(--other-background-color);
+    background-image: url(../imeges/hw/original.svg/astronaut4.svg);
 }
 
 
@@ -532,8 +565,7 @@ ul.list{
     justify-content: center;
     align-items: center;
 
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), 
-    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: fill, background-color var(--transform-1);
 }
 
 .svg-instagram,
@@ -549,12 +581,14 @@ ul.list{
 .facebook:hover,
 .linkedin:hover{
     background-color: var(--blue-background);
+    
 }
 .instagram:focus,
 .twitter:focus,
 .facebook:focus,
 .linkedin:focus {
     background-color: var(--blue-background);
+    
 }
 
 .instagram:hover .svg-instagram,
@@ -562,12 +596,14 @@ ul.list{
 .facebook:hover .svg-facebook,
 .linkedin:hover .svg-linkedin {
     fill: #FFFFFF;
+    
 }
 .instagram:focus .svg-instagram,
 .twitter:focus .svg-twitter,
 .facebook:focus .svg-facebook,
 .linkedin:focus .svg-linkedin {
     fill: #FFFFFF;
+    
 }
 
 /* //////////////////////Клієнти//////////////////////////// */
@@ -602,8 +638,7 @@ ul.list{
     padding: 0;
     fill: var(--color-icon);
 
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), 
-    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: fill var(--transform-1);
 }
 
 .group1:hover .svg-group1,
@@ -611,9 +646,14 @@ ul.list{
 .group3:hover .svg-group3,
 .group4:hover .svg-group4,
 .group5:hover .svg-group5,
-.group6:hover .svg-group6{
-    fill: var(--blue-background);
-    
+.group6:hover .svg-group6,
+.group1:focus .svg-group1,
+.group2:focus .svg-group2,
+.group3:focus .svg-group3,
+.group4:focus .svg-group4,
+.group5:focus .svg-group5,
+.group6:focus .svg-group6 {
+    fill: var(--blue-background);   
 }
 
 
@@ -622,19 +662,7 @@ ul.list{
 .group3:hover,
 .group4:hover,
 .group5:hover,
-.group6:hover{
-    border: 1px solid var(--blue-background);
-}
-.group1:focus .svg-group1,
-.group2:focus .svg-group2,
-.group3:focus .svg-group3,
-.group4:focus .svg-group4,
-.group5:focus .svg-group5,
-.group6:focus .svg-group6 {
-    fill: var(--blue-background);
-
-}
-
+.group6:hover,
 .group1:focus,
 .group2:focus,
 .group3:focus,
@@ -642,7 +670,9 @@ ul.list{
 .group5:focus,
 .group6:focus {
     border: 1px solid var(--blue-background);
+    
 }
+
 
 .lists-b{
     margin-top: 0px;
@@ -690,6 +720,8 @@ ul.list{
     letter-spacing: 0.03em;
     text-decoration: none;
     color: var(--accent-color2);
+
+    transition: color var(--transform-1);
 }
 
 .liaddress:hover,
@@ -699,6 +731,7 @@ ul.list{
 .litel:hover,
 .litel:focus{
     color: var(--accent-color1);
+    
 }
 
 .limail{
@@ -708,6 +741,8 @@ ul.list{
     letter-spacing: 0.03em;
     text-decoration: none;
     color: rgba(255, 255, 255, 0.6);
+
+    transition: color var(--transform-1);
 }
 
 .litel{
@@ -717,6 +752,8 @@ ul.list{
     text-decoration: none;
     letter-spacing: 0.03em;
     color: rgba(255, 255, 255, 0.6);
+
+    transition: color var(--transform-1);
 }
 
 .address{
@@ -738,8 +775,13 @@ ul.list{
     width: 44px;
     height: 44px;
 }
+.fsocial-list{
+    transition: color var(--transform-1);
+}
+
 .fsocial-list:hover{
     fill: var(--blue-background);
+    
 }
 
 .second-footer-div{
@@ -773,7 +815,7 @@ ul.list{
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.1);
 
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color var(--transform-1);
 }
 
 .instagram-white,
@@ -789,9 +831,11 @@ ul.list{
 
 .fsocial-link:hover{
     background-color: var(--blue-background);
+    
 }
 .fsocial-link:focus {
     background-color: var(--blue-background);
+    
 }
 
 /* Підпишіться */
@@ -846,8 +890,9 @@ ul.list{
     border-radius: 4px;
     border-color: transparent;
 }
-.send {
+.icon-send {
     margin-left: 10px;
+    fill: var(--background-color);
 }
 
 
@@ -883,20 +928,17 @@ ul.list{
 .button-web.box:hover,
 .button-applications.box:hover,
 .button-design.box:hover,
-.button-marketing.box:hover{
-    box-shadow:0px 1px 2px rgba(0, 0, 0, 0.08);
-    box-shadow:0px 3px 1px rgba(0, 0, 0, 0.1);
-    box-shadow:0px 4px 4px rgba(0, 0, 0, 0.25);
-}
+.button-marketing.box:hover,
 .button-all.box:focus,
 .button-web.box:focus,
 .button-applications.box:focus,
 .button-design.box:focus,
-.button-marketing.box:focus{
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.08);
-    box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+.button-marketing.box:focus {
+    box-shadow:0px 1px 2px rgba(0, 0, 0, 0.08);
+    box-shadow:0px 3px 1px rgba(0, 0, 0, 0.1);
+    box-shadow:0px 4px 4px rgba(0, 0, 0, 0.25);   
 }
+
 .options{
     padding-top: 94px;
     padding-bottom: 94px;
@@ -922,8 +964,7 @@ ul.list{
     text-decoration: none;
     border-radius: 4px;
 
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), 
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color var(--transform-1);
 }
 
 .button-all:hover,
@@ -939,100 +980,43 @@ ul.list{
     background-color: var(--blue-background);
     border-color: transparent;
     color: var(--accent-color2);
+    
 }
 
 .icon>.a-сard {
     color: inherit;
     
 }
+
 /*  */
-/* .div-doing {
-    position: relative;
-
-}
-
-.div-doing::before {
-
-    position: absolute;
-    content: "";
-    height: 70px;
-    width: 100%;
-    left: 0;
-    bottom: 0;
-    background: rgba(47, 48, 58, 0.8);
-}
-
-.doing .title-doing {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: 0;
-    padding-top: 27px;
-    padding-bottom: 27px;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 1.143;
-    text-align: center;
-    text-transform: uppercase;
-    color: var(--accent-color2);
-} */
 .surfacing{
     position:relative;
-    overflow: hidden; 
+    overflow: hidden;
 }
-.surfacing .img{
-    display: block;
-    max-width: 100%;
-    height: auto;
-}
-
-.surfacing::before{
-    display: inline-block;
-    position:absolute;
-    content: "";
-    width: 100%;
-    height: 100%;
-    background-color: rgba(33, 150, 243, 0.9);
-    opacity: 0;
-}
-.surfacing:hover::before{
-    opacity: 1; 
-}
-/*  */
-.surfacing-text{
+.surfacing-text {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    padding: 63px 24px;
-    background-color: rgba(33, 150, 243, 0.9);
     transform: translateY(100%);
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    
+    padding: 63px 24px;
+    background: rgba(33, 150, 243, 0.9);
+    transition: transform var(--transform-1);
 }
 
-
-.surfacing .surfacing-text-icon{
-    display: inline-block;
-    margin: 0;
+.surfacing-text-icon {
     font-weight: 400;
     font-size: 18px;
-    line-height: 1.55;
+    line-height: 1.56;
     letter-spacing: 0.03em;
-    color: var(--accent-color2);
-    /* background-color: #212121; */
-    
-}
-.surfacing-text::before{
-    position: absolute;
-    opacity: 0;
+    color: #FFFFFF;
+
 }
 
-.surfacing-text:hover::before {
-    opacity: 1;
+.icon .a-сard:hover .surfacing-text,
+.icon .a-сard:focus .surfacing-text {
+    transform: translateY(0%);
 }
+
 
 .techno,
 .poster,
@@ -1096,6 +1080,9 @@ ul.list{
 /* ширина ліжок */
 .element .box{
     width: 370px;
+    overflow: hidden;
+    position: relative;
+    transition: color var(--transform-1);
 }
 
 .a-сard{
@@ -1121,6 +1108,66 @@ ul.list{
     margin: calc(var(--indent) / 2);
 }
 .element.box:hover{
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
+                0px 4px 4px rgba(0, 0, 0, 0.06),
+                1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
+
+
+/* Модальне вікно */
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: initial;
+    transition: opacity var(--transform-1), 
+              visibility var(--transform-1);
+}
+
+.backdrop.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 528px;
+    min-height: 581px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+.modal-close-btn {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 8px;
+    right: 8px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: #FFFFFF;
+    cursor: pointer;
+}
+.modal-close-btn:hover,
+.modal-close-btn:focus {
+    outline: none;
+    color: var(--accent-color1);
+}
+.closed-icon{
+    fill: var(--background);
+}
